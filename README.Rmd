@@ -1,0 +1,14 @@
+---
+title: "veinreport"
+author: "Sergio Ibarra-Espinosa"
+date: "23 de Marzo de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/atmoschem/veinreport.svg?branch=master)](https://travis-ci.org/atmoschem/veinreport)
+
+## Automatic reports for [VEIN](https://github.com/atmoschem/vein) runs 
