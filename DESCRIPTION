@@ -1,0 +1,20 @@
+Package: veinreport
+Title: Automatic reports for VEIN runs
+Version: 0.1.0
+Authors@R: c(
+  person(given = "Sergio",
+         family = "Ibarra-Espinosa",
+         role = c("aut", "cre"),
+         email = "sergio.ibarra@usp.br",
+         comment = c(ORCID = "0000-0002-3162-1905"))
+  ) 
+Description: Creating R markdown documents for VEIN. It runs rmarkdown to compile reports for traffic data, speed, and emissions. It generates tables, figures and maps.
+License: MIT + file LICENSE
+URL: https://github.com/atmoschem/veinreport
+BugReports: https://github.com/atmoschem/veinreport/issues/
+Depends: R (>= 2.10)
+Imports: gridExtra, ggplot2, sf, cptcity, data.table, sp, vein, methods, tidyr, forcats
+Encoding: UTF-8
+LazyData: no
+RoxygenNote: 6.0.1
+Suggests: knitr, rmarkdown,
