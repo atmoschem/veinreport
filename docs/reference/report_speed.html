@@ -18,13 +18,19 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+<meta property="og:title" content="Report Speed functions. — report_speed" />
+
+<meta property="og:description" content="report_traffic runs traffic functions." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,12 +53,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">veinreport</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">veinreport</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -61,7 +71,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -84,6 +94,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Report Speed functions.</h1>
+    <small>Source: <a href='https://github.com/atmoschem/veinreport/blob/master/R/report_speed.R'><code>R/report_speed.R</code></a></small>
     </div>
 
     
@@ -92,7 +103,7 @@
 
     <pre class="usage"><span class='fu'>report_speed</span>(<span class='kw'>speed</span> <span class='kw'>=</span> <span class='st'>"network/speed.rds"</span>, <span class='kw'>net</span> <span class='kw'>=</span> <span class='st'>"network/net.rds"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -117,16 +128,16 @@
 <span class='no'>los</span> <span class='kw'>&lt;-</span> <span class='fu'>report_speed</span>()
 <span class='fu'>names</span>(<span class='no'>los</span>)
 <span class='fu'>print</span>(<span class='no'>los</span>)
-}</div><div class='output co'>#&gt; setwd('/tmp/RtmptSwXSA')</div><div class='output co'>#&gt; <span class='message'>files at /tmp/RtmptSwXSA</span></div><div class='output co'>#&gt; Directories:
-#&gt;  [1] "/tmp/RtmptSwXSA"              "/tmp/RtmptSwXSA/ef"          
-#&gt;  [3] "/tmp/RtmptSwXSA/emi"          "/tmp/RtmptSwXSA/emi/BUS_01"  
-#&gt;  [5] "/tmp/RtmptSwXSA/emi/HGV_01"   "/tmp/RtmptSwXSA/emi/LCV_01"  
-#&gt;  [7] "/tmp/RtmptSwXSA/emi/MC_01"    "/tmp/RtmptSwXSA/emi/PC_01"   
-#&gt;  [9] "/tmp/RtmptSwXSA/est"          "/tmp/RtmptSwXSA/images"      
-#&gt; [11] "/tmp/RtmptSwXSA/network"      "/tmp/RtmptSwXSA/post"        
-#&gt; [13] "/tmp/RtmptSwXSA/post/df"      "/tmp/RtmptSwXSA/post/grids"  
-#&gt; [15] "/tmp/RtmptSwXSA/post/streets" "/tmp/RtmptSwXSA/profiles"    
-#&gt; [17] "/tmp/RtmptSwXSA/veh"         </div><div class='output co'>#&gt; <span class='message'>Average age of PC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of PC is 1460.22 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of LCV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of LCV is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of HGV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of HGV is 111.09 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of BUS is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of BUS is 37.03 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of MC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of MC is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; 
+}</div><div class='output co'>#&gt; setwd('/tmp/Rtmp36G1mO')</div><div class='output co'>#&gt; <span class='message'>files at /tmp/Rtmp36G1mO</span></div><div class='output co'>#&gt; Directories:
+#&gt;  [1] "/tmp/Rtmp36G1mO"              "/tmp/Rtmp36G1mO/ef"          
+#&gt;  [3] "/tmp/Rtmp36G1mO/emi"          "/tmp/Rtmp36G1mO/emi/BUS_01"  
+#&gt;  [5] "/tmp/Rtmp36G1mO/emi/HGV_01"   "/tmp/Rtmp36G1mO/emi/LCV_01"  
+#&gt;  [7] "/tmp/Rtmp36G1mO/emi/MC_01"    "/tmp/Rtmp36G1mO/emi/PC_01"   
+#&gt;  [9] "/tmp/Rtmp36G1mO/est"          "/tmp/Rtmp36G1mO/images"      
+#&gt; [11] "/tmp/Rtmp36G1mO/network"      "/tmp/Rtmp36G1mO/post"        
+#&gt; [13] "/tmp/Rtmp36G1mO/post/df"      "/tmp/Rtmp36G1mO/post/grids"  
+#&gt; [15] "/tmp/Rtmp36G1mO/post/streets" "/tmp/Rtmp36G1mO/profiles"    
+#&gt; [17] "/tmp/Rtmp36G1mO/veh"         </div><div class='output co'>#&gt; <span class='message'>Average age of PC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of PC is 1460.22 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of LCV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of LCV is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of HGV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of HGV is 111.09 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of BUS is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of BUS is 37.03 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of MC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of MC is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; 
 #&gt; [1] "est/BUS_01_input.R"
 #&gt; [1] "CO"</div><div class='output co'>#&gt; <span class='message'>Number of columns of 'veh' is different than length of 'ef'</span></div><div class='output co'>#&gt; <span class='message'>adjusting length of ef to the number of colums of 'veh'</span></div><div class='output co'>#&gt; <span class='message'>3043.67 kg emissions in 24 hours and 7 days</span></div><div class='output co'>#&gt; [1] "est/HGV_01_input.R"
 #&gt; [1] "CO"</div><div class='output co'>#&gt; <span class='message'>Number of columns of 'veh' is different than length of 'ef'</span></div><div class='output co'>#&gt; <span class='message'>adjusting length of ef to the number of colums of 'veh'</span></div><div class='output co'>#&gt; <span class='message'>105806.64 kg emissions in 24 hours and 7 days</span></div><div class='output co'>#&gt; [1] "est/LCV_01_input.R"
@@ -151,7 +162,7 @@
 #&gt; [1] FALSE
 #&gt; 
 #&gt; $bg
-#&gt; [1] "white"
+#&gt; [1] "transparent"
 #&gt; 
 #&gt; $bty
 #&gt; [1] "o"
@@ -199,7 +210,7 @@
 #&gt; [1] "black"
 #&gt; 
 #&gt; $fin
-#&gt; [1] 9.927083 5.781250
+#&gt; [1] 7 7
 #&gt; 
 #&gt; $font
 #&gt; [1] 1
@@ -280,10 +291,10 @@
 #&gt; [1] 1
 #&gt; 
 #&gt; $pin
-#&gt; [1] 8.687083 3.941250
+#&gt; [1] 5.76 5.16
 #&gt; 
 #&gt; $plt
-#&gt; [1] 0.0624554 0.9375446 0.1591351 0.8408649
+#&gt; [1] 0.08857143 0.91142857 0.13142857 0.86857143
 #&gt; 
 #&gt; $ps
 #&gt; [1] 12
@@ -304,7 +315,7 @@
 #&gt; [1] -0.5
 #&gt; 
 #&gt; $usr
-#&gt; [1] -46.84458 -46.65151 -23.62390 -23.51851
+#&gt; [1] -46.81128 -46.68481 -23.63600 -23.50641
 #&gt; 
 #&gt; $xaxp
 #&gt; [1] 0 1 5
@@ -333,7 +344,7 @@
 #&gt; 
 #&gt; Reading emissions from:
 #&gt; [1] "CO_BUS_01_DF.rds" "CO_HGV_01_DF.rds" "CO_LCV_01_DF.rds" "CO_MC_01_DF.rds" 
-#&gt; [5] "CO_PC_01_DF.rds" </div><div class='output co'>#&gt; <span class='message'>Average age of PC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of PC is 1460.22 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of LCV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of LCV is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of HGV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of HGV is 111.09 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of BUS is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of BUS is 37.03 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of MC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of MC is 243.37 * 10^3 veh</span></div><div class='img'><img src='report_speed-1.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
+#&gt; [5] "CO_PC_01_DF.rds" </div><div class='output co'>#&gt; <span class='message'>Average age of PC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of PC is 1460.22 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of LCV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of LCV is 243.37 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of HGV is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of HGV is 111.09 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of BUS is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of BUS is 37.03 * 10^3 veh</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'>Average age of MC is 11.17</span></div><div class='output co'>#&gt; <span class='message'>Number of MC is 243.37 * 10^3 veh</span></div><div class='img'><img src='report_speed-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; $summary
 #&gt;     Hour  Min. 1st Qu. Median  Mean 3rd Qu.   Max.       sd
 #&gt; S1    S1 29.76   39.99  40.00 50.52   60.00 100.00 16.43864
@@ -361,32 +372,32 @@
 #&gt; S23  S23 26.23   39.80  40.00 50.23   59.95 100.00 16.29934
 #&gt; S24  S24 29.04   39.95  40.00 50.47   59.99 100.00 16.41164
 #&gt; 
-#&gt; $boxplots</div><div class='img'><img src='report_speed-2.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
+#&gt; $boxplots</div><div class='img'><img src='report_speed-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; $streets
-#&gt; $streets[[1]]</div><div class='img'><img src='report_speed-3.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[2]]</div><div class='img'><img src='report_speed-4.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[3]]</div><div class='img'><img src='report_speed-5.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[4]]</div><div class='img'><img src='report_speed-6.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[5]]</div><div class='img'><img src='report_speed-7.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[6]]</div><div class='img'><img src='report_speed-8.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[7]]</div><div class='img'><img src='report_speed-9.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[8]]</div><div class='img'><img src='report_speed-10.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[9]]</div><div class='img'><img src='report_speed-11.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[10]]</div><div class='img'><img src='report_speed-12.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[11]]</div><div class='img'><img src='report_speed-13.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[12]]</div><div class='img'><img src='report_speed-14.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[13]]</div><div class='img'><img src='report_speed-15.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[14]]</div><div class='img'><img src='report_speed-16.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[15]]</div><div class='img'><img src='report_speed-17.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[16]]</div><div class='img'><img src='report_speed-18.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[17]]</div><div class='img'><img src='report_speed-19.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[18]]</div><div class='img'><img src='report_speed-20.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[19]]</div><div class='img'><img src='report_speed-21.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[20]]</div><div class='img'><img src='report_speed-22.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[21]]</div><div class='img'><img src='report_speed-23.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[22]]</div><div class='img'><img src='report_speed-24.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[23]]</div><div class='img'><img src='report_speed-25.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
-#&gt; $streets[[24]]</div><div class='img'><img src='report_speed-26.png' alt='' width='700' height='432.632880098887' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[1]]</div><div class='img'><img src='report_speed-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[2]]</div><div class='img'><img src='report_speed-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[3]]</div><div class='img'><img src='report_speed-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[4]]</div><div class='img'><img src='report_speed-6.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[5]]</div><div class='img'><img src='report_speed-7.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[6]]</div><div class='img'><img src='report_speed-8.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[7]]</div><div class='img'><img src='report_speed-9.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[8]]</div><div class='img'><img src='report_speed-10.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[9]]</div><div class='img'><img src='report_speed-11.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[10]]</div><div class='img'><img src='report_speed-12.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[11]]</div><div class='img'><img src='report_speed-13.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[12]]</div><div class='img'><img src='report_speed-14.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[13]]</div><div class='img'><img src='report_speed-15.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[14]]</div><div class='img'><img src='report_speed-16.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[15]]</div><div class='img'><img src='report_speed-17.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[16]]</div><div class='img'><img src='report_speed-18.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[17]]</div><div class='img'><img src='report_speed-19.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[18]]</div><div class='img'><img src='report_speed-20.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[19]]</div><div class='img'><img src='report_speed-21.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[20]]</div><div class='img'><img src='report_speed-22.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[21]]</div><div class='img'><img src='report_speed-23.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[22]]</div><div class='img'><img src='report_speed-24.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[23]]</div><div class='img'><img src='report_speed-25.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; $streets[[24]]</div><div class='img'><img src='report_speed-26.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -408,7 +419,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
@@ -416,3 +427,4 @@
 
   </body>
 </html>
+

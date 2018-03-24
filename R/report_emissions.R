@@ -76,7 +76,7 @@ report_emissions <- function(emispath = "post",
                                        fill = unclass(dfb$g_in_all_hours)))+
       ggplot2::geom_bar(stat = "identity", color = "white", size = 0.2) +
       ggplot2::scale_fill_gradientn("g", colours = cptcity::cpt()) +
-      theme_black() +
+      veinreport::theme_black() +
       ggplot2::facet_wrap(~Pollutant, scales = "free", ncol = 2) +
       ggplot2::labs(x = "Age", y = "g")
 
@@ -86,7 +86,7 @@ report_emissions <- function(emispath = "post",
                                        fill = unclass(dfc$g)))+
       ggplot2::geom_bar(stat = "identity", color = "white", size = 0.2) +
       ggplot2::scale_fill_gradientn("g", colours = cptcity::cpt()) +
-      theme_black() +
+      veinreport::theme_black() +
       ggplot2::facet_wrap(~Pollutant, scales = "free", ncol = 2) +
       ggplot2::labs(x = "Hours", y = "g")
 
