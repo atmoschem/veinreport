@@ -1,4 +1,4 @@
-#' Report Speed functions.
+#' Report Speed.
 #'
 #' @description \code{\link{report_traffic}} runs traffic functions.
 #'
@@ -15,12 +15,11 @@
 #' @importFrom forcats fct_inorder
 #' @return a list
 #' @export
-#' @examples {
+#' @examples \dontrun{
 #' vein::inventory(file.path(tempdir()))
 #' source(paste0(file.path(tempdir(), "main.R")))
 #' los <- report_speed()
 #' names(los)
-#' print(los)
 #' }
 report_speed <- function(speed = "network/speed.rds",
                          net = "network/net.rds"){

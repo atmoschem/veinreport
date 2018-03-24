@@ -2,7 +2,7 @@
 % Please edit documentation in R/report_traffic.R
 \name{report_traffic}
 \alias{report_traffic}
-\title{Report Traffic functions.}
+\title{Report Traffic.}
 \usage{
 report_traffic(net = "network/net.rds", width = 1/102, ..count..)
 }
@@ -20,11 +20,10 @@ a list
 \code{\link{report_traffic}} runs traffic functions.
 }
 \examples{
-{
+\dontrun{
 vein::inventory(file.path(tempdir()))
 source(paste0(file.path(tempdir(), "main.R")))
 lot <- report_traffic()
 names(lot)
-print(lot)
 }
 }

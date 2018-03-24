@@ -12,7 +12,7 @@
 #' @param emissions Logical; if TRUE writes emissions functions.
 #' @return report.Rmd.
 #' @export
-#' @examples \dontrun{
+#' @examples {
 #' name <- file.path(tempdir())
 #' vein::inventory(name)
 #' source(paste0(name, "/main.R"))

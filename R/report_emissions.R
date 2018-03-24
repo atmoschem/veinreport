@@ -1,4 +1,4 @@
-#' Report Speed functions.
+#' Report Emissions.
 #'
 #' @description \code{\link{report_traffic}} runs traffic functions.
 #'
@@ -15,13 +15,12 @@
 #' @importFrom stats sd aggregate
 #' @return a list
 #' @export
-#' @examples {
+#' @examples \dontrun{
 #' name <- file.path(tempdir())
 #' vein::inventory(name)
 #' source(paste0(name, "/main.R"))
 #' loe <- report_emissions()
 #' names(loe)
-#' print(loe)
 #' }
 report_emissions <- function(emispath = "post",
                              path_df = "post/df",

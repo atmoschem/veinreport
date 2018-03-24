@@ -2,7 +2,7 @@
 % Please edit documentation in R/report_speed.R
 \name{report_speed}
 \alias{report_speed}
-\title{Report Speed functions.}
+\title{Report Speed.}
 \usage{
 report_speed(speed = "network/speed.rds", net = "network/net.rds")
 }
@@ -18,11 +18,10 @@ a list
 \code{\link{report_traffic}} runs traffic functions.
 }
 \examples{
-{
+\dontrun{
 vein::inventory(file.path(tempdir()))
 source(paste0(file.path(tempdir(), "main.R")))
 los <- report_speed()
 names(los)
-print(los)
 }
 }

@@ -29,7 +29,7 @@ in order to run vein. It is required to know the vehicular composition of the
 fleet.
 }
 \examples{
-\dontrun{
+{
 name <- file.path(tempdir())
 vein::inventory(name)
 source(paste0(name, "/main.R"))

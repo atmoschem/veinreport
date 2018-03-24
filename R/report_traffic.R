@@ -1,4 +1,4 @@
-#' Report Traffic functions.
+#' Report Traffic.
 #'
 #' @description \code{\link{report_traffic}} runs traffic functions.
 #'
@@ -15,12 +15,11 @@
 #' @importFrom stats sd
 #' @return a list
 #' @export
-#' @examples {
+#' @examples \dontrun{
 #' vein::inventory(file.path(tempdir()))
 #' source(paste0(file.path(tempdir(), "main.R")))
 #' lot <- report_traffic()
 #' names(lot)
-#' print(lot)
 #' }
 report_traffic <- function(net = "network/net.rds",
                            width = 1/102,

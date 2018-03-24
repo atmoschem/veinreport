@@ -2,7 +2,7 @@
 % Please edit documentation in R/report_emissions.R
 \name{report_emissions}
 \alias{report_emissions}
-\title{Report Speed functions.}
+\title{Report Emissions.}
 \usage{
 report_emissions(emispath = "post", path_df = "post/df",
   path_streets = "post/streets", path_grids = "post/grids")
@@ -23,12 +23,11 @@ a list
 \code{\link{report_traffic}} runs traffic functions.
 }
 \examples{
-{
+\dontrun{
 name <- file.path(tempdir())
 vein::inventory(name)
 source(paste0(name, "/main.R"))
 loe <- report_emissions()
 names(loe)
-print(loe)
 }
 }
