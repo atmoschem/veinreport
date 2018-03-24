@@ -43,13 +43,17 @@ report_speed <- function(speed = "network/speed.rds",
   a3 <- sapply(dfspeed, stats::sd)
   a3 <- data.frame(sd = a3)
   l1 <- cbind(a1, a2, a3)
-  times <- ifelse(ncol(dfspeed) > 24, 24, ncol(dfspeed))
-  dfspeedg <- tidyr::gather(dfspeed[, 1:time], "Hours", "Speed")
+  for(i in 1:time){
+    dfspeed[, i] <- as.numeric(dfspeed[, i])
+  }
+  df <- data.frame(dfspeed[, 1:time])
+  names(df) <- paste0("S", 1:ncol(df))
+  dfspeedg <- tidyr::gather(df, "Hours", "Speed")
   Hours <-   as.numeric(gsub("S", "", dfspeedg$hours))
   Hours <- factor(Hours, levels = unique(Hours))
   # l2 <-
    l2 <-  ggplot2::ggplot(dfspeedg,
-                  ggplot2::aes(x = fct_inorder(Hours),
+                  ggplot2::aes(x = forcats::fct_inorder(Hours),
                                y = unclass(dfspeedg$Speed)))+
     ggplot2::geom_boxplot() +
      ggplot2::labs(x = "Hours", "Speed [km/h]")
@@ -76,4 +80,3 @@ report_speed <- function(speed = "network/speed.rds",
   names(lista) <- c("summary", "boxplots", "streets")
   return(lista)
 }
-
