@@ -4,12 +4,14 @@
 \alias{report_traffic}
 \title{Report Traffic functions.}
 \usage{
-report_traffic(net = "network/net.rds", width = 1/102)
+report_traffic(net = "network/net.rds", width = 1/102, ..count..)
 }
 \arguments{
 \item{net}{path to net.rds}
 
 \item{width}{Numeric; Widht if cell grid.}
+
+\item{..count..}{ignored.}
 }
 \value{
 a list
@@ -23,6 +25,6 @@ vein::inventory(file.path(tempdir()))
 source(paste0(file.path(tempdir(), "main.R")))
 lot <- report_traffic()
 names(lot)
-lot
+print(lot)
 }
 }

@@ -20,7 +20,7 @@
 #' source(paste0(file.path(tempdir(), "main.R")))
 #' los <- report_speed()
 #' names(los)
-#' los
+#' print(los)
 #' }
 report_speed <- function(speed = "network/speed.rds",
                          net = "network/net.rds"){

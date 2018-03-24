@@ -23,6 +23,6 @@ vein::inventory(file.path(tempdir()))
 source(paste0(file.path(tempdir(), "main.R")))
 los <- report_speed()
 names(los)
-los
+print(los)
 }
 }

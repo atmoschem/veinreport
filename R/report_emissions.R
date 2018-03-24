@@ -21,7 +21,7 @@
 #' source(paste0(name, "/main.R"))
 #' loe <- report_emissions()
 #' names(loe)
-#' loe
+#' print(loe)
 #' }
 report_emissions <- function(emispath = "post",
                              path_df = "post/df",

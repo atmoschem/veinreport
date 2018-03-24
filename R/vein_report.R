@@ -40,7 +40,7 @@ vein_report <- function(author = "me",
   if(traffic){
     cat("# Traffic\n\n")
     cat("```{r, echo = FALSE, warning=FALSE, message=FALSE}\n")
-    cat("a <- achemreport::report_traffic()\n")
+    cat("a <- veinreport::report_traffic()\n")
     cat("knitr::kable(a$summary, align = 'lrrrrrr')\n")
     cat("a$plots\n")
     cat("a$histo\n")
@@ -51,7 +51,7 @@ vein_report <- function(author = "me",
   if(speed){
     cat("# Speed \n\n")
     cat("```{r, echo = FALSE, warning=FALSE, message=FALSE}\n")
-    cat("a <- achemreport::report_speed()\n")
+    cat("a <- veinreport::report_speed()\n")
     cat("knitr::kable(a$summary, align = 'lrrrrrr')\n")
     cat("a$plots\n")
     cat("a$boxplots\n")
@@ -75,7 +75,7 @@ vein_report <- function(author = "me",
     cat("# Emissions \n\n")
     cat("## Tables \n\n")
     cat("```{r, echo = FALSE, warning=FALSE, message=FALSE}\n")
-    cat("a <- achemreport::report_emissions()\n")
+    cat("a <- veinreport::report_emissions()\n")
     cat("knitr::kable(a$tablas$Veh, align = 'llr')\n")
     cat("```\n\n")
     cat("### Tables \n\n")

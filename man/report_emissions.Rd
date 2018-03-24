@@ -29,6 +29,6 @@ vein::inventory(name)
 source(paste0(name, "/main.R"))
 loe <- report_emissions()
 names(loe)
-loe
+print(loe)
 }
 }

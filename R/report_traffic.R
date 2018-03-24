@@ -4,6 +4,7 @@
 #'
 #' @param net path to net.rds
 #' @param width Numeric; Widht if cell grid.
+#' @param ..count.. ignored.
 #' @importFrom cptcity cpt
 #' @importFrom sf st_as_sf st_sf st_geometry
 #' @importFrom ggplot2 ggplot geom_histogram aes scale_fill_gradientn labs
@@ -19,10 +20,11 @@
 #' source(paste0(file.path(tempdir(), "main.R")))
 #' lot <- report_traffic()
 #' names(lot)
-#' lot
+#' print(lot)
 #' }
 report_traffic <- function(net = "network/net.rds",
-                           width = 1/102){
+                           width = 1/102,
+                           ..count..){
   net <- readRDS(net)
   net <- sf::st_as_sf(net)
   dfnet <- sf::st_set_geometry(net, NULL)
