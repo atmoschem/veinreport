@@ -1,6 +1,6 @@
 Package: veinreport
 Title: Automatic reports for VEIN runs
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
   person(given = "Sergio",
          family = "Ibarra-Espinosa",
@@ -8,7 +8,7 @@ Authors@R: c(
          email = "sergio.ibarra@usp.br",
          comment = c(ORCID = "0000-0002-3162-1905"))
   ) 
-Description: Creating R markdown documents for VEIN. It runs rmarkdown to compile reports for traffic data, speed, and emissions. It generates tables, figures and maps.
+Description: Creating R markdown documents for VEIN. It creates a rmarkdown file to compile reports for traffic data, speed, and emissions. It generates tables, figures and maps.
 License: MIT + file LICENSE
 URL: https://github.com/atmoschem/veinreport
 BugReports: https://github.com/atmoschem/veinreport/issues/

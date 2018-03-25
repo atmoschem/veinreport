@@ -16,7 +16,7 @@
 #' @return a list
 #' @export
 #' @examples \dontrun{
-#' vein::inventory(file.path(tempdir()))
+#' vein::inventory(file.path(tempdir()),rush.hour = T)
 #' source(paste0(file.path(tempdir(), "main.R")))
 #' lot <- report_traffic()
 #' names(lot)

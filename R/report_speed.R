@@ -34,7 +34,11 @@ report_speed <- function(speed = "network/speed.rds",
     dfspeed <- speed
   }
   time <- ifelse(ncol(dfspeed) > 24, 24, ncol(dfspeed))
-  dfspeed <- dfspeed[, 1:time]
+  if(time == 1){
+    dfspeed <- dfspeed
+  } else{
+    dfspeed <- dfspeed[, 1:time]
+  }
   a1 <- data.frame(Hour = names(dfspeed))
   a2 <- as.data.frame(do.call("rbind", lapply(1:ncol(dfspeed), function(i){
     round(summary(as.numeric(as.character(dfspeed[, i]))), 2)
@@ -48,7 +52,7 @@ report_speed <- function(speed = "network/speed.rds",
   df <- data.frame(dfspeed[, 1:time])
   names(df) <- paste0("S", 1:ncol(df))
   dfspeedg <- tidyr::gather(df, "Hours", "Speed")
-  Hours <-   as.numeric(gsub("S", "", dfspeedg$hours))
+  Hours <-   as.numeric(gsub("S", "", dfspeedg$Hours))
   Hours <- factor(Hours, levels = unique(Hours))
   # l2 <-
    l2 <-  ggplot2::ggplot(dfspeedg,
