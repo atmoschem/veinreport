@@ -37,9 +37,9 @@ report_emissions <- function(emispath = "post",
     xx <- lapply(x, readRDS)
     xxx <- data.table::rbindlist(xx)
     dfa <- stats::aggregate(xxx$g, # Table
-                     by = list(xxx$pollutant, xxx$veh),
+                     by = list(xxx$pollutant),
                      sum, na.rm = T)
-    names(dfa) <- c("Pollutant", "Vehicle","g_in_all_hours")
+    names(dfa) <- c("Pollutant", "g_in_all_hours")
 
     dfb <- stats::aggregate(xxx$g, # plot
                      by = list(xxx$pollutant,  xxx$age),
@@ -156,6 +156,7 @@ lista[[3]] <- streets
     grids <- lapply(1:length(xx), function(j){
       lapply(1:times, function(i){
         xx[[j]]@data[, i] <- as.numeric(xx[[j]]@data[, i])
+        # xx[[j]]@data[, i]$id <- NULL
         sp::spplot(xx[[j]], names(xx[[j]])[i],
                    scales = list(draw = T),
                    col.regions = rev(cptcity::cpt()),

@@ -22,11 +22,12 @@
 #' names(lot)
 #' }
 report_traffic <- function(net = "network/net.rds",
-                           width = 1/102,
+                           width = 3000,
                            ..count..){
   net <- readRDS(net)
   net <- sf::st_as_sf(net)
   dfnet <- sf::st_set_geometry(net, NULL)
+  dfnet <- dfnet[, grep(pattern = TRUE, x = sapply(dfnet, is.numeric))]
   a1 <- data.frame(Category = names(dfnet))
   a2 <- as.data.frame(do.call("rbind", lapply(1:ncol(dfnet), function(i){
     round(summary(as.numeric(as.character(dfnet[, i]))), 2)
@@ -45,15 +46,17 @@ report_traffic <- function(net = "network/net.rds",
                                            fill = ..count..),
                               col = "white") +
       ggplot2::scale_fill_gradientn(colours = cptcity::cpt()) +
-      theme_black() +
+      veinreport::theme_black() +
       ggplot2::labs(x = NULL, title = names(dfnet)[i])
   })
-   netsp <- methods::as(net, "Spatial")
+  net <- net[, grep(pattern = TRUE, x = sapply(net, is.numeric))]
+  netsp <- methods::as(net, "Spatial")
   for(i in 1:ncol(netsp@data)){
     netsp@data[, i] <- as.numeric(netsp@data[, i])
   }
 
   l3 <- lapply(1:ncol(netsp@data), function(i){
+    netsp$id <- NULL
     sp::spplot(netsp, names(net)[i],
                scales = list(draw = T),
                col.regions = rev(cptcity::cpt()),
@@ -63,6 +66,7 @@ report_traffic <- function(net = "network/net.rds",
   g <- vein::make_grid(net, width)
   gtraffic <- methods::as(vein::emis_grid(net, g), "Spatial")
   l4 <- lapply(1:ncol(dfnet), function(i){
+    gtraffic$id <- NULL
     sp::spplot(gtraffic, names(gtraffic)[i],
                scales = list(draw = T),
                col.regions = rev(cptcity::cpt()),

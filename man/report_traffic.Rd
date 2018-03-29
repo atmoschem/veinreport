@@ -4,7 +4,7 @@
 \alias{report_traffic}
 \title{Report Traffic.}
 \usage{
-report_traffic(net = "network/net.rds", width = 1/102, ..count..)
+report_traffic(net = "network/net.rds", width = 3000, ..count..)
 }
 \arguments{
 \item{net}{path to net.rds}
