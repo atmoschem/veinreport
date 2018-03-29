@@ -25,7 +25,7 @@ a list
 \examples{
 \dontrun{
 name <- file.path(tempdir())
-vein::inventory(name)
+vein::inventory(name, rush.hour = TRUE)
 source(paste0(name, "/main.R"))
 loe <- report_emissions()
 names(loe)

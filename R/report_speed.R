@@ -16,17 +16,18 @@
 #' @return a list
 #' @export
 #' @examples \dontrun{
-#' vein::inventory(file.path(tempdir()))
+#' vein::inventory(file.path(tempdir()), rush.hour = TRUE)
 #' source(paste0(file.path(tempdir(), "main.R")))
-#' los <- report_speed()
+#' net <- readRDS("network/net.rds")
+#' net <- net[, c("ldv", "hdv", "ps")]
+#' speed <- readRDS("network/speed.rds")
+#' los <- report_speed(speed, net)
 #' names(los)
 #' }
-report_speed <- function(speed = "network/speed.rds",
-                         net = "network/net.rds"){
+report_speed <- function(speed,
+                         net){
   lista <- list()
-  net <- readRDS(net)
   net <- sf::st_as_sf(net)
-  speed <- readRDS(speed)
   dfnet <- sf::st_set_geometry(net, NULL)
   if(exists("speed$geometry")){
     dfspeed <- sf::st_set_geometry(speed, NULL)

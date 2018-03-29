@@ -31,7 +31,7 @@ fleet.
 \examples{
 \dontrun{
 name <- file.path(tempdir())
-vein::inventory(name)
+vein::inventory(name, rush.hour = TRUE)
 source(paste0(name, "/main.R"))
 vein_report(author = "me", path = name)
 rmarkdown::render(paste0(name, "/report.Rmd"))

@@ -2,7 +2,7 @@
 #'
 #' @description \code{\link{report_traffic}} runs traffic functions.
 #'
-#' @param net path to net.rds
+#' @param net Spatial Feature net with numeric columns
 #' @param width Numeric; Widht if cell grid.
 #' @param ..count.. ignored.
 #' @importFrom cptcity cpt
@@ -18,13 +18,14 @@
 #' @examples \dontrun{
 #' vein::inventory(file.path(tempdir()),rush.hour = T)
 #' source(paste0(file.path(tempdir(), "main.R")))
-#' lot <- report_traffic()
+#' net <- readRDS("network/net.rds")
+#' net <- net[, c("ldv", "hdv", "ps")]
+#' lot <- report_traffic(net)
 #' names(lot)
 #' }
-report_traffic <- function(net = "network/net.rds",
+report_traffic <- function(net,
                            width = 3000,
                            ..count..){
-  net <- readRDS(net)
   net <- sf::st_as_sf(net)
   dfnet <- sf::st_set_geometry(net, NULL)
   dfnet <- dfnet[, grep(pattern = TRUE, x = sapply(dfnet, is.numeric))]

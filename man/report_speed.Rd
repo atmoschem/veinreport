@@ -4,7 +4,7 @@
 \alias{report_speed}
 \title{Report Speed.}
 \usage{
-report_speed(speed = "network/speed.rds", net = "network/net.rds")
+report_speed(speed, net)
 }
 \arguments{
 \item{speed}{path to speed.rds}
@@ -19,9 +19,12 @@ a list
 }
 \examples{
 \dontrun{
-vein::inventory(file.path(tempdir()))
+vein::inventory(file.path(tempdir()), rush.hour = TRUE)
 source(paste0(file.path(tempdir(), "main.R")))
-los <- report_speed()
+net <- readRDS("network/net.rds")
+net <- net[, c("ldv", "hdv", "ps")]
+speed <- readRDS("network/speed.rds")
+los <- report_speed(speed, net)
 names(los)
 }
 }

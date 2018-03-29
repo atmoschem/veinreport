@@ -4,10 +4,10 @@
 \alias{report_traffic}
 \title{Report Traffic.}
 \usage{
-report_traffic(net = "network/net.rds", width = 3000, ..count..)
+report_traffic(net, width = 3000, ..count..)
 }
 \arguments{
-\item{net}{path to net.rds}
+\item{net}{Spatial Feature net with numeric columns}
 
 \item{width}{Numeric; Widht if cell grid.}
 
@@ -23,7 +23,9 @@ a list
 \dontrun{
 vein::inventory(file.path(tempdir()),rush.hour = T)
 source(paste0(file.path(tempdir(), "main.R")))
-lot <- report_traffic()
+net <- readRDS("network/net.rds")
+net <- net[, c("ldv", "hdv", "ps")]
+lot <- report_traffic(net)
 names(lot)
 }
 }

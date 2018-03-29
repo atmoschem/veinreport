@@ -101,14 +101,14 @@
     <p><code>report_traffic</code> runs traffic functions.</p>
     
 
-    <pre class="usage"><span class='fu'>report_traffic</span>(<span class='kw'>net</span> <span class='kw'>=</span> <span class='st'>"network/net.rds"</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>3000</span>, <span class='no'>..count..</span>)</pre>
+    <pre class="usage"><span class='fu'>report_traffic</span>(<span class='no'>net</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>3000</span>, <span class='no'>..count..</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>net</th>
-      <td><p>path to net.rds</p></td>
+      <td><p>Spatial Feature net with numeric columns</p></td>
     </tr>
     <tr>
       <th>width</th>
@@ -129,7 +129,9 @@
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='kw pkg'>vein</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/vein/topics/inventory'>inventory</a></span>(<span class='fu'>file.path</span>(<span class='fu'>tempdir</span>()),<span class='kw'>rush.hour</span> <span class='kw'>=</span> <span class='no'>T</span>)
 <span class='fu'>source</span>(<span class='fu'>paste0</span>(<span class='fu'>file.path</span>(<span class='fu'>tempdir</span>(), <span class='st'>"main.R"</span>)))
-<span class='no'>lot</span> <span class='kw'>&lt;-</span> <span class='fu'>report_traffic</span>()
+<span class='no'>net</span> <span class='kw'>&lt;-</span> <span class='fu'>readRDS</span>(<span class='st'>"network/net.rds"</span>)
+<span class='no'>net</span> <span class='kw'>&lt;-</span> <span class='no'>net</span>[, <span class='fu'>c</span>(<span class='st'>"ldv"</span>, <span class='st'>"hdv"</span>, <span class='st'>"ps"</span>)]
+<span class='no'>lot</span> <span class='kw'>&lt;-</span> <span class='fu'>report_traffic</span>(<span class='no'>net</span>)
 <span class='fu'>names</span>(<span class='no'>lot</span>)
 <span class='co'># }</span></pre>
   </div>
